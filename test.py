@@ -56,6 +56,7 @@ class KnightLegalMoves(unittest.TestCase):
     
 class BishopLegalMoves(unittest.TestCase):
     legal_moves = ( ((7,0), (0,7)),
+                    ((7,2),(5,4)),
                   )
                   
     def test_bishop_moves(self):
