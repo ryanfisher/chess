@@ -2,7 +2,8 @@
 
 import chess
 
-if __name__ == "__main__":
+
+def test():
     board = chess.Board()
     board.set_board()
     print board.display()
@@ -20,3 +21,6 @@ if __name__ == "__main__":
     else:
         print ""
         print "That move is invalid."
+        
+if __name__ == "__main__":
+    test()
