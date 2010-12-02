@@ -79,6 +79,23 @@ class Board(object):
 
         def __init__(self, team):
             self.team = team
+        
+        def get_legal_moves(self, start, board):
+            '''Returns a list of coordinates (in tuple form) that
+               are possible legal moves for the pawn.'''
+            possible_moves = []
+            legal_moves = []
+            if self.team == DEFAULT_TEAM1:
+                if start[0] == 6:
+                    possible_moves.append((start[0]-1,start[1]))
+                    possible_moves.append((start[0]-2,start[1]))
+                    legal_moves = board.check_moves(possible_moves, self.team)
+            else:
+                if start[0] == 1:
+                    possible_moves.append((start[0]+1,start[1]))
+                    possible_moves.append((start[0]+2,start[1]))
+                    legal_moves = board.check_moves(possible_moves, self.team)
+                
             
         def is_legal_move(self, start, end, board):
             #end_piece is piece currently in desired end location
@@ -240,6 +257,23 @@ class Board(object):
             return True
         else:
             return False
+            
+    def check_moves(self, moves, team):
+        '''Takes a list of moves and checks if a piece is blocking
+           the moves. At which point it cuts the list off and returns
+           the cut off list. If the the piece that cuts off the list
+           is the same as the team parameter, that move is not included.
+           Otherwise the move is included.'''
+        valid = []
+        for move in moves:
+            if board[move[0]][move[1]] is None:
+                valid.append(move)
+            elif board[move[0]][move[1]].team == team:
+                return valid
+            else:
+                valid.append(move)
+                return valid
+        return valid
             
     def display(self):
         print self.board

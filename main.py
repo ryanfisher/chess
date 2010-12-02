@@ -1,7 +1,18 @@
 #!/usr/bin/env python2.7
 
 import chess
+import wx
 
+
+class ChessWindow(object):
+    def draw_board(self):
+        pass
+
+def main():
+    app = wx.App(False)
+    frame = wx.Frame(None, wx.ID_ANY, "Hello World")
+    frame.Show(True)
+    app.MainLoop()
 
 def test():
     board = chess.Board()
