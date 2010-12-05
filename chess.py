@@ -86,15 +86,15 @@ class Board(object):
             possible_moves = []
             legal_moves = []
             if self.team == DEFAULT_TEAM1:
+                possible_moves.append((start[0]-1,start[1]))
                 if start[0] == 6:
-                    possible_moves.append((start[0]-1,start[1]))
                     possible_moves.append((start[0]-2,start[1]))
-                    legal_moves = board.check_moves(possible_moves, self.team)
+                legal_moves = board.check_moves(possible_moves, self.team)
             else:
+                possible_moves.append((start[0]+1,start[1]))
                 if start[0] == 1:
-                    possible_moves.append((start[0]+1,start[1]))
                     possible_moves.append((start[0]+2,start[1]))
-                    legal_moves = board.check_moves(possible_moves, self.team)
+                legal_moves = board.check_moves(possible_moves, self.team)
                 
             
         def is_legal_move(self, start, end, board):
