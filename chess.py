@@ -16,7 +16,10 @@ class Board(object):
     
         def __init__(self, team):
             self.team = team
-            
+        
+        def get_legal_moves(self, start, board):
+            pass
+        
         def is_legal_move(self, start, end, board):
             if (board[end[0]][end[1]] is not None and
                 board[end[0]][end[1]].team == self.team):
@@ -64,6 +67,9 @@ class Board(object):
     
         def __init__(self, team):
             self.team = team
+            
+        def get_legal_moves(self, start, board):
+            pass
             
         def is_legal_move(self, start, end, board):
             if (board[end[0]][end[1]] is not None and
@@ -138,6 +144,9 @@ class Board(object):
         def __init__(self, team):
             self.team = team
         
+        def get_legal_moves(self, start, board):
+            pass
+            
         def is_legal_move(self, start, end, board):
             if (board[end[0]][end[1]] is not None and
                 board[end[0]][end[1]].team == self.team):
@@ -170,6 +179,9 @@ class Board(object):
         def __init__(self, team):
             self.team = team
         
+        def get_legal_moves(self, start, board):
+            pass
+            
         def is_legal_move(self, start, end, board):
             if (board[end[0]][end[1]] is not None and
                 board[end[0]][end[1]].team == self.team):
@@ -187,6 +199,9 @@ class Board(object):
     
         def __init__(self, team):
             self.team = team
+        
+        def get_legal_moves(self, start, board):
+            pass
             
         def is_legal_move(self, start, end, board):
             if (board[end[0]][end[1]] is not None and
