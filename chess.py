@@ -69,7 +69,17 @@ class Board(object):
             self.team = team
             
         def get_legal_moves(self, start, board):
-            pass
+            '''Returns a list of legal moves that can be made by the
+               King at start.'''
+               
+            #This is not the most efficient way to do this but it is
+            #plenty quick enough for it's purpose.
+            possible_moves = []
+            for row in range(8):
+                for col in range(8):
+                    if self.is_legal_move(start, (row, col), board):
+                        possible_moves.append((row, col))
+            return possible_moves
             
         def is_legal_move(self, start, end, board):
             if (board[end[0]][end[1]] is not None and
@@ -272,7 +282,15 @@ class Board(object):
             return True
         else:
             return False
-            
+    
+    def get_legal_moves(self, position):
+        '''Returns of a list of locations the piece at position can
+           legally move to. Position must be a tuple of coordinates
+           on the board. The returned list will contained tuples of
+           all coordinates the piece at position can move to.'''
+        piece = self.board[position[0]][position[1]]
+        return piece.get_legal_moves(position, self.board)
+    
     def check_moves(self, moves, team):
         '''Takes a list of moves and checks if a piece is blocking
            the moves. At which point it cuts the list off and returns
