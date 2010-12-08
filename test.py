@@ -6,12 +6,25 @@ import chess
 
 
 class KingMoves(unittest.TestCase):
-    "This tests the legal moves for a king."
+    '''This tests the legal moves for a king.'''
     legal_moves = ( ((0,3), (0,4)),
                     ((0,3), (1,2)),
                     ((0,3), (1,4)),
                     ((0,3), (0,2)),
                   )
+                  
+    legal_moves_list = ( ([(5,1)],
+                          [(4,0),(5,0),(6,0),(6,1),(6,2),(5,2),(4,2),
+                           (4,1)]
+                          ),
+                        )
+    def test_get_legal_moves(self):
+        for pieces_list, legal_moves in self.legal_moves_list:
+            piece = pieces_list[0]
+            board = chess.Board()
+            board.set_king(piece[0], piece[1])
+            legal_moves_to_test = board.get_legal_moves(piece)
+            self.assertItemsEqual(legal_moves, legal_moves_to_test)
     
     def test_legal_moves(self):
         for start, end in self.legal_moves:
@@ -26,6 +39,9 @@ class QueenMoves(unittest.TestCase):
                     ((0,0), (7,7)),
                   )
     
+    def test_get_legal_moves(self):
+        pass
+        
     def test_legal_moves(self):
         for start, end in self.legal_moves:
             board = chess.Board()
@@ -37,6 +53,9 @@ class PawnMoves(unittest.TestCase):
                     ((6,1), (4,1)),
                   )
     
+    def test_get_legal_moves(self):
+        pass
+        
     def test_legal_moves(self):
         for start, end in self.legal_moves:
             board = chess.Board()
@@ -47,7 +66,10 @@ class KnightMoves(unittest.TestCase):
     legal_moves = ( ((7,1), (6,3)),
                     ((0,1), (2,0)),
                   )
-                  
+    
+    def test_get_legal_moves(self):
+        pass
+        
     def test_legal_moves(self):
         for start, end in self.legal_moves:
             board = chess.Board()
@@ -59,7 +81,10 @@ class BishopMoves(unittest.TestCase):
                     ((7,2), (5,4)),
                     ((5,3), (6,4)),
                   )
-                  
+    
+    def test_get_legal_moves(self):
+        pass
+        
     def test_legal_moves(self):
         for start, end in self.legal_moves:
             board = chess.Board()
@@ -70,6 +95,10 @@ class RookMoves(unittest.TestCase):
     legal_moves = ( ((7,0), (0,0)),
                   )
                   
+                  
+    def test_get_legal_moves(self):
+        pass
+        
     def test_legal_moves(self):
         for start, end in self.legal_moves:
             board = chess.Board()
