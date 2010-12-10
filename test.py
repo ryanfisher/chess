@@ -22,6 +22,8 @@ class KingMoves(unittest.TestCase):
         for pieces_list, legal_moves in self.legal_moves_list:
             piece = pieces_list[0]
             board = chess.Board()
+            for pawn_coords in pieces_list[1:]:
+                board.set_pawn(pawn_coords[0], pawn_coords[1])
             board.set_king(piece[0], piece[1])
             legal_moves_to_test = board.get_legal_moves(piece)
             self.assertItemsEqual(legal_moves, legal_moves_to_test)
@@ -38,9 +40,18 @@ class QueenMoves(unittest.TestCase):
                     ((0,4), (4,0)),
                     ((0,0), (7,7)),
                   )
+                  
+    legal_moves_list = ()
     
     def test_get_legal_moves(self):
-        pass
+        for pieces_list, legal_moves in self.legal_moves_list:
+            piece = pieces_list[0]
+            board = chess.Board()
+            for pawn_coords in pieces_list[1:]:
+                board.set_pawn(pawn_coords[0], pawn_coords[1])
+            board.set_queen(piece[0], piece[1])
+            legal_moves_to_test = board.get_legal_moves(piece)
+            self.assertItemsEqual(legal_moves, legal_moves_to_test)
         
     def test_legal_moves(self):
         for start, end in self.legal_moves:
@@ -53,8 +64,17 @@ class PawnMoves(unittest.TestCase):
                     ((6,1), (4,1)),
                   )
     
+    legal_moves_list = ()
+    
     def test_get_legal_moves(self):
-        pass
+        for pieces_list, legal_moves in self.legal_moves_list:
+            piece = pieces_list[0]
+            board = chess.Board()
+            for pawn_coords in pieces_list[1:]:
+                board.set_pawn(pawn_coords[0], pawn_coords[1])
+            board.set_pawn(piece[0], piece[1])
+            legal_moves_to_test = board.get_legal_moves(piece)
+            self.assertItemsEqual(legal_moves, legal_moves_to_test)
         
     def test_legal_moves(self):
         for start, end in self.legal_moves:
@@ -67,8 +87,20 @@ class KnightMoves(unittest.TestCase):
                     ((0,1), (2,0)),
                   )
     
+    legal_moves_list = ( ([(0,3)],
+                          [(2,2),(2,4),(1,1),(1,5)]
+                          ),
+                       )
+    
     def test_get_legal_moves(self):
-        pass
+        for pieces_list, legal_moves in self.legal_moves_list:
+            piece = pieces_list[0]
+            board = chess.Board()
+            for pawn_coords in pieces_list[1:]:
+                board.set_pawn(pawn_coords[0], pawn_coords[1])
+            board.set_knight(piece[0], piece[1])
+            legal_moves_to_test = board.get_legal_moves(piece)
+            self.assertItemsEqual(legal_moves, legal_moves_to_test)
         
     def test_legal_moves(self):
         for start, end in self.legal_moves:
@@ -82,8 +114,17 @@ class BishopMoves(unittest.TestCase):
                     ((5,3), (6,4)),
                   )
     
+    legal_moves_list = ()
+    
     def test_get_legal_moves(self):
-        pass
+        for pieces_list, legal_moves in self.legal_moves_list:
+            piece = pieces_list[0]
+            board = chess.Board()
+            for pawn_coords in pieces_list[1:]:
+                board.set_pawn(pawn_coords[0], pawn_coords[1])
+            board.set_bishop(piece[0], piece[1])
+            legal_moves_to_test = board.get_legal_moves(piece)
+            self.assertItemsEqual(legal_moves, legal_moves_to_test)
         
     def test_legal_moves(self):
         for start, end in self.legal_moves:
@@ -95,9 +136,17 @@ class RookMoves(unittest.TestCase):
     legal_moves = ( ((7,0), (0,0)),
                   )
                   
-                  
+    legal_moves_list = ()
+    
     def test_get_legal_moves(self):
-        pass
+        for pieces_list, legal_moves in self.legal_moves_list:
+            piece = pieces_list[0]
+            board = chess.Board()
+            for pawn_coords in pieces_list[1:]:
+                board.set_pawn(pawn_coords[0], pawn_coords[1])
+            board.set_rook(piece[0], piece[1])
+            legal_moves_to_test = board.get_legal_moves(piece)
+            self.assertItemsEqual(legal_moves, legal_moves_to_test)
         
     def test_legal_moves(self):
         for start, end in self.legal_moves:
