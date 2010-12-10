@@ -6,3 +6,7 @@ I chose chess for this project for two reasons.
 #1 Chess was my team's main project in AP Computer Science during high school. C++ was the language to use then. Trying chess again with the new tools I've learned since that experience should give a new perspective to learn from.
 #2 Chess offers a great deal of opportunities for expansion while being fairly straightforward to begin.
 
+Goals:
+- Practice Test-Driven Development. I'll be writing tests before implementing functions.
+- Refactor everything all the time.
+- Add more goals to the README.
