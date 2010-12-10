@@ -9,6 +9,7 @@ I chose chess for this project for two reasons.
 Goals:
 - Practice Test-Driven Development. I'll be writing tests before implementing functions.
 - Refactor everything all the time.
+- Apply changes to code in accord with what I learn as I read through Steve McConnell's Code Complete. (added 12/10)
 - Add more goals to the README.
 
 Things I'm not worried about:
