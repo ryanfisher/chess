@@ -40,11 +40,11 @@ class Board(object):
                         return False
                 return True
             elif start[1] == end[1]:
-                if start[1] < end[1]:
+                if start[0] < end[0]:
                     row_step = 1
                 else:
                     row_step = -1
-                for row in range(start[1], end[1], row_step):
+                for row in range(start[0], end[0], row_step):
                     if (board[row][start[1]] is not None and
                         board[row][start[1]] != board[start[0]][start[1]]):
                         return False
@@ -52,8 +52,8 @@ class Board(object):
             elif math.fabs(start[0] - end[0]) != math.fabs(start[1] - end[1]):
                 return False
             else:
-                row_step = 1
-                col_step = 1
+                row_step = -1
+                col_step = -1
                 if start[0] < end[0]: row_step = 1
                 if start[1] < end[1]: col_step = 1
                 for row, col in zip(range(start[0], end[0], row_step),
@@ -175,11 +175,11 @@ class Board(object):
                         return False
                 return True
             elif start[1] == end[1]:
-                if start[1] < end[1]:
+                if start[0] < end[0]:
                     row_step = 1
                 else:
                     row_step = -1
-                for row in range(start[1], end[1], row_step):
+                for row in range(start[0], end[0], row_step):
                     if (board[row][start[1]] is not None and
                         board[row][start[1]] != board[start[0]][start[1]]):
                         return False
@@ -233,8 +233,8 @@ class Board(object):
             if math.fabs(start[0] - end[0]) != math.fabs(start[1] - end[1]):
                 return False
             else:
-                row_step = 1
-                col_step = 1
+                row_step = -1
+                col_step = -1
                 if start[0] < end[0]: row_step = 1
                 if start[1] < end[1]: col_step = 1
                 for row, col in zip(range(start[0], end[0], row_step),
