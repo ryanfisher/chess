@@ -18,7 +18,12 @@ class Board(object):
             self.team = team
         
         def get_legal_moves(self, start, board):
-            pass
+            possible_moves = []
+            for row in range(8):
+                for col in range(8):
+                    if self.is_legal_move(start, (row, col), board):
+                        possible_moves.append((row, col))
+            return possible_moves
         
         def is_legal_move(self, start, end, board):
             if (board[end[0]][end[1]] is not None and
@@ -100,18 +105,11 @@ class Board(object):
             '''Returns a list of coordinates (in tuple form) that
                are possible legal moves for the pawn.'''
             possible_moves = []
-            legal_moves = []
-            if self.team == DEFAULT_TEAM1:
-                possible_moves.append((start[0]-1,start[1]))
-                if start[0] == 6:
-                    possible_moves.append((start[0]-2,start[1]))
-                legal_moves = board.check_moves(possible_moves, self.team)
-            else:
-                possible_moves.append((start[0]+1,start[1]))
-                if start[0] == 1:
-                    possible_moves.append((start[0]+2,start[1]))
-                legal_moves = board.check_moves(possible_moves, self.team)
-                
+            for row in range(8):
+                for col in range(8):
+                    if self.is_legal_move(start, (row, col), board):
+                        possible_moves.append((row, col))
+            return possible_moves
             
         def is_legal_move(self, start, end, board):
             #end_piece is piece currently in desired end location
@@ -155,7 +153,12 @@ class Board(object):
             self.team = team
         
         def get_legal_moves(self, start, board):
-            pass
+            possible_moves = []
+            for row in range(8):
+                for col in range(8):
+                    if self.is_legal_move(start, (row, col), board):
+                        possible_moves.append((row, col))
+            return possible_moves
             
         def is_legal_move(self, start, end, board):
             if (board[end[0]][end[1]] is not None and
@@ -190,7 +193,12 @@ class Board(object):
             self.team = team
         
         def get_legal_moves(self, start, board):
-            pass
+            possible_moves = []
+            for row in range(8):
+                for col in range(8):
+                    if self.is_legal_move(start, (row, col), board):
+                        possible_moves.append((row, col))
+            return possible_moves
             
         def is_legal_move(self, start, end, board):
             if (board[end[0]][end[1]] is not None and
@@ -211,7 +219,12 @@ class Board(object):
             self.team = team
         
         def get_legal_moves(self, start, board):
-            pass
+            possible_moves = []
+            for row in range(8):
+                for col in range(8):
+                    if self.is_legal_move(start, (row, col), board):
+                        possible_moves.append((row, col))
+            return possible_moves
             
         def is_legal_move(self, start, end, board):
             if (board[end[0]][end[1]] is not None and
