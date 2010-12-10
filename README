@@ -10,3 +10,6 @@ Goals:
 - Practice Test-Driven Development. I'll be writing tests before implementing functions.
 - Refactor everything all the time.
 - Add more goals to the README.
+
+Things I'm not worried about:
+- Upfront design. I'm going very agile here. I do want to have some semblance of good design here. A certain object-orientedness, for example. But planning upfront is not a concern when there are no seriously large goals to achieve.
