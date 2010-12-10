@@ -41,7 +41,13 @@ class QueenMoves(unittest.TestCase):
                     ((0,0), (7,7)),
                   )
                   
-    legal_moves_list = ()
+    legal_moves_list = ( ([(3,3)],
+                          [(0,3),(1,3),(2,3),(4,3),(5,3),(6,3),(7,3),
+                           (3,0),(3,1),(3,2),(3,4),(3,5),(3,6),(3,7),
+                           (0,0),(1,1),(2,2),(4,4),(5,5),(6,6),(7,7),
+                           (2,4),(1,5),(0,6),(4,2),(5,1),(6,0)]
+                          ),
+                       )
     
     def test_get_legal_moves(self):
         for pieces_list, legal_moves in self.legal_moves_list:
@@ -64,7 +70,10 @@ class PawnMoves(unittest.TestCase):
                     ((6,1), (4,1)),
                   )
     
-    legal_moves_list = ()
+    legal_moves_list = ( ([(6,2)],
+                          [(5,2),(4,2)]
+                          ),
+                       )
     
     def test_get_legal_moves(self):
         for pieces_list, legal_moves in self.legal_moves_list:
@@ -114,7 +123,11 @@ class BishopMoves(unittest.TestCase):
                     ((5,3), (6,4)),
                   )
     
-    legal_moves_list = ()
+    legal_moves_list = ( ([(3,3)],
+                          [(0,0),(1,1),(2,2),(4,4),(5,5),(6,6),(7,7),
+                           (2,4),(1,5),(0,6),(4,2),(5,1),(6,0)]
+                          ),
+                       )
     
     def test_get_legal_moves(self):
         for pieces_list, legal_moves in self.legal_moves_list:
@@ -136,7 +149,11 @@ class RookMoves(unittest.TestCase):
     legal_moves = ( ((7,0), (0,0)),
                   )
                   
-    legal_moves_list = ()
+    legal_moves_list = ( ([(3,3)],
+                          [(0,3),(1,3),(2,3),(4,3),(5,3),(6,3),(7,3),
+                           (3,0),(3,1),(3,2),(3,4),(3,5),(3,6),(3,7)]
+                          ),
+                       )
     
     def test_get_legal_moves(self):
         for pieces_list, legal_moves in self.legal_moves_list:
