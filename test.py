@@ -3,8 +3,6 @@
 import unittest
 import chess
 
-
-
 class KingMoves(unittest.TestCase):
     '''This tests the legal moves for a king.'''
     legal_moves = ( ((0,3), (0,4)),
