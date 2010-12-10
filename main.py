@@ -33,5 +33,16 @@ def test():
         print ""
         print "That move is invalid."
         
+def test_setboard_legalmoves():
+    '''Sets the board and then shows the legal moves of each piece
+       in the top two rows. The only pieces that should have any 
+       legal moves are the two knights and the pawns.'''
+    board = chess.Board()
+    board.set_board()
+    for row in range(2):
+        for col in range(8):
+            print 'position: (' + str(row) + ', ' + str(col) +')'
+            print board.get_legal_moves((row, col))
+        
 if __name__ == "__main__":
-    test()
+    test_setboard_legalmoves()
