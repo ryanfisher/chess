@@ -74,11 +74,11 @@ class Board(object):
             self.team = team
             
         def get_legal_moves(self, start, board):
-            '''Returns a list of legal moves that can be made by the
-               King at start.'''
+            '''
+            Returns a list of legal moves that can be made by the
+            King at start.
+            '''
                
-            #This is not the most efficient way to do this but it is
-            #plenty quick enough for it's purpose.
             possible_moves = []
             for row in range(8):
                 for col in range(8):
@@ -102,8 +102,10 @@ class Board(object):
             self.team = team
         
         def get_legal_moves(self, start, board):
-            '''Returns a list of coordinates (in tuple form) that
-               are possible legal moves for the pawn.'''
+            '''
+            Returns a list of coordinates (in tuple form) that
+            are possible legal moves for the pawn.
+            '''
             possible_moves = []
             for row in range(8):
                 for col in range(8):
@@ -114,6 +116,7 @@ class Board(object):
         def is_legal_move(self, start, end, board):
             #end_piece is piece currently in desired end location
             end_piece = board[end[0]][end[1]]
+            # if the end spot is empty
             if end_piece is None:
                 if end[1] != start[1]:
                     return False
@@ -261,8 +264,10 @@ class Board(object):
         self.board[row][col] = piece
     
     def set_board(self, team1=DEFAULT_TEAM1, team2=DEFAULT_TEAM2):
-        '''Sets board for a standard chess game where teams names
-           for individual pieces are defined by team1 and team2.'''
+        """
+        Sets board for a standard chess game where teams names
+        for individual pieces are defined by team1 and team2.
+        """
         self._set_piece(self._Rook(team1), 7, 0)
         self._set_piece(self._Rook(team2), 0, 0)
         self._set_piece(self._Rook(team2), 0, 7)
@@ -285,9 +290,11 @@ class Board(object):
         return True
             
     def move_piece(self, start, end):
-        '''Moves piece at start location to end location. start and end
-           must be tuples. If move is legal return True, otherwise return
-           False.'''
+        '''
+        Moves piece at start location to end location. start and end
+        must be tuples. If move is legal return True, otherwise return
+        False.
+        '''
         piece = self.board[start[0]][start[1]]
         if piece.is_legal_move(start, end, self.board):
             self.board[start[0]][start[1]] = None
@@ -297,19 +304,23 @@ class Board(object):
             return False
     
     def get_legal_moves(self, position):
-        '''Returns of a list of locations the piece at position can
-           legally move to. Position must be a tuple of coordinates
-           on the board. The returned list will contained tuples of
-           all coordinates the piece at position can move to.'''
+        '''
+        Returns of a list of locations the piece at position can
+        legally move to. Position must be a tuple of coordinates
+        on the board. The returned list will contained tuples of
+        all coordinates the piece at position can move to.
+        '''
         piece = self.board[position[0]][position[1]]
         return piece.get_legal_moves(position, self.board)
     
     def check_moves(self, moves, team):
-        '''Takes a list of moves and checks if a piece is blocking
-           the moves. At which point it cuts the list off and returns
-           the cut off list. If the the piece that cuts off the list
-           is the same as the team parameter, that move is not included.
-           Otherwise the move is included.'''
+        '''
+        Takes a list of moves and checks if a piece is blocking
+        the moves. At which point it cuts the list off and returns
+        the cut off list. If the the piece that cuts off the list
+        is the same as the team parameter, that move is not included.
+        Otherwise the move is included.
+        '''
         valid = []
         for move in moves:
             if board[move[0]][move[1]] is None:
