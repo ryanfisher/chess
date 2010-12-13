@@ -6,8 +6,15 @@ DEFAULT_TEAM2 = "Black"
 
 
 class Board(object):
+    '''
+    Describes the chess board. Represented by an array of arrays,
+    each of length 8.
+    '''
 
     class _Piece(object):
+        '''
+        Parent class for all pieces.
+        '''
     
         def __init__(self, team):
             self.team = team
@@ -18,6 +25,15 @@ class Board(object):
             self.team = team
         
         def get_legal_moves(self, start, board):
+            '''
+            Returns a list of all possible moves the queen at position
+            start can legally make given the context of the board.
+            This functions similarly in all other pieces.
+            
+            Return element takes form [(row,col),(row,col)] where
+            (row,col) is a legal ending spot and the list can contain
+            any number of possible tuples.
+            '''
             possible_moves = []
             for row in range(8):
                 for col in range(8):
@@ -26,9 +42,16 @@ class Board(object):
             return possible_moves
         
         def is_legal_move(self, start, end, board):
+            '''
+            Returns True if the move from start to end is legal given
+            the context of the board. Otherwise, returns False.
+            '''
+            
+            #Checks if a piece on the same team is blocking
             if (board[end[0]][end[1]] is not None and
                 board[end[0]][end[1]].team == self.team):
                 return False
+            #If moving within the same row
             if start[0] == end[0]:
                 if start[1] < end[1]:
                     col_step = 1
@@ -39,6 +62,7 @@ class Board(object):
                         board[start[0]][col] != board[start[0]][start[1]]):
                         return False
                 return True
+            #If moving within the same column
             elif start[1] == end[1]:
                 if start[0] < end[0]:
                     row_step = 1
@@ -49,8 +73,10 @@ class Board(object):
                         board[row][start[1]] != board[start[0]][start[1]]):
                         return False
                 return True
+            #If move is not diagonal
             elif math.fabs(start[0] - end[0]) != math.fabs(start[1] - end[1]):
                 return False
+            #If move is diagonal
             else:
                 row_step = -1
                 col_step = -1
@@ -73,12 +99,7 @@ class Board(object):
         def __init__(self, team):
             self.team = team
             
-        def get_legal_moves(self, start, board):
-            '''
-            Returns a list of legal moves that can be made by the
-            King at start.
-            '''
-               
+        def get_legal_moves(self, start, board):               
             possible_moves = []
             for row in range(8):
                 for col in range(8):
@@ -102,10 +123,6 @@ class Board(object):
             self.team = team
         
         def get_legal_moves(self, start, board):
-            '''
-            Returns a list of coordinates (in tuple form) that
-            are possible legal moves for the pawn.
-            '''
             possible_moves = []
             for row in range(8):
                 for col in range(8):
