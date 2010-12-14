@@ -1,5 +1,8 @@
 Chess
 
+UPDATE:
+Now that I have some basic functionality out of this, I'll probably be focusing much more on problems that I actually need to solve. That means I'll only be making minor updates to this project for the foreseeable future.
+
 A project in refactoring and agile development.
 
 I chose chess for this project for two reasons.
@@ -11,6 +14,3 @@ Goals:
 - Refactor everything all the time.
 - Apply changes to code in accord with what I learn as I read through Steve McConnell's Code Complete. (added 12/10)
 - Add more goals to the README.
-
-Things I'm not worried about:
-- Upfront design. I'm going very agile here. I do want to have some semblance of good design. A certain object-orientedness, for example. But planning upfront is not a concern with the goals I'm looking to achieve.
